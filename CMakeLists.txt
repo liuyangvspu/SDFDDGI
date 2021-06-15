@@ -1,32 +1,20 @@
-cmake_minimum_required(VERSION 3.13.4)
-project (EngineMain LANGUAGES CXX VERSION 1.0.0)
+cmake_minimum_required(VERSION 3.8)
+project(SDFDDGI LANGUAGES CXX C)
+set (CMAKE_CXX_STANDARD 17)
 
-set(VULKAN_ROOT "$ENV{VULKAN_SDK}") #make sure your VULKAN_SDK environment variable is set
-set(VULKAN_LIB "${VULKAN_ROOT}/Lib/")
-set(VULKAN_INCLUDE "${VULKAN_ROOT}/Include")
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT SDFDDGI)
 
+# GLOB_RECURSE is okay for now, just remember to rerun cmake when you add a new file
+file(GLOB_RECURSE SRC_FILES "src/*.cpp" "src/*.h")
 
-set(GLFW_ROOT extern/glfw-3.3.3.64)
-set(GLFW_ABS_ROOT "${CMAKE_SOURCE_DIR}/${GLFW_ROOT}")
-set(GLFW_ABS_LIB "${GLFW_ABS_ROOT}/lib")
-set(GLFW_ABS_INCLUDE "${GLFW_ABS_ROOT}/include")
+find_package(OpenGL REQUIRED)
+option(GLFW_BUILD_EXAMPLES "" OFF)
+option(GLFW_INSTALL "" OFF)
+option(GLFW_BUILD_TESTS "" OFF)
+add_subdirectory(dep/glfw)
 
-set(ENTT_ROOT extern/entt)
-set(ENTT_ABS_ROOT "${CMAKE_SOURCE_DIR}/${ENTT_ROOT}")
+add_executable(SDFDDGI ${SRC_FILES})
+target_link_libraries(SDFDDGI PRIVATE ${OPENGL_gl_LIBRARY})
+target_link_libraries(SDFDDGI PRIVATE glfw)
 
-set(FMT_ROOT extern/fmt)
-
-set(EXTERN_DIR "${CMAKE_SOURCE_DIR}/extern")
-
-set(GLAD_ROOT "${EXTERN_DIR}/glad")
-set(GLAD_INC "${EXTERN_DIR}/glad/include")
-
-set(LIBRARY_OUTPUT_PATH "${CMAKE_BINARY_DIR}")
-set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}")
-
-message("${GLFW_ABS_INCLUDE}")
-
-add_subdirectory(Engine) #this needs to be first
-add_subdirectory(EngineDriver)
-add_subdirectory(extern/fmt EXCLUDE_FROM_ALL)
-add_subdirectory(extern/glad)
+target_include_directories(SDFDDGI PRIVATE "dep/glfw/include")
