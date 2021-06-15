@@ -1,0 +1,1 @@
+  -LC:/Users/Work/Documents/SDFDDGI/extern/glfw-3.3.3.64/lib  -LC:/VulkanSDK/1.2.162.1/Lib  -LC:/Users/Work/Documents/SDFDDGI/Engine/extern/fmt  ../libEngine.dll.a -lglfw3dll -lvulkan-1 -lpthread ../libglad.a -lopengl32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

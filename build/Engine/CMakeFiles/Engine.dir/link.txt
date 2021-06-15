@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\Engine.dir/objects.a
+C:\MinGW-64\bin\ar.exe cr CMakeFiles\Engine.dir/objects.a @CMakeFiles\Engine.dir\objects1.rsp
+C:\MinGW-64\bin\g++.exe    -shared -o ..\libEngine.dll -Wl,--out-implib,..\libEngine.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\Engine.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\Engine.dir\linklibs.rsp

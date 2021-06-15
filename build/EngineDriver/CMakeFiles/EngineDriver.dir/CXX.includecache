@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Engine/src/Engine/Test.h
+stdio.h
+-
+
+C:/Users/Work/Documents/SDFDDGI/EngineDriver/src/main.cpp
+Engine/Test.h
+-
+
