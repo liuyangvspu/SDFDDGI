@@ -4,3 +4,9 @@
 [submodule "dep/fmt"]
 	path = dep/fmt
 	url = https://github.com/fmtlib/fmt.git
+[submodule "dep/glm"]
+	path = dep/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "dep/assimp"]
+	path = dep/assimp
+	url = https://github.com/assimp/assimp.git
