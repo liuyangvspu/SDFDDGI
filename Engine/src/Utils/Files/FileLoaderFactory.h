@@ -6,7 +6,7 @@
 
 
 
-#define GIP_INTERNAL(x)         "src/Resources/" x
+#define GIP_INTERNAL(x)         "../Engine/Resources/" x
 #define GIP_INTERNAL_SHADER(x)  GIP_INTERNAL("Shaders/") x
 #define GIP_INTERNAL_TEXTURE(x) GIP_INTERNAL("Textures/") x
 #define GIP_INTERNAL_MODEL(x)   GIP_INTERNAL("Models/") x

@@ -3,11 +3,14 @@
 #include <Engine/src/Utils/Logger.h>
 #include <Engine/src/Utils/Input/InputManager.h>
 #include <Engine/src/Utils/Context/OpenGLWindow.h>
+
+#include "DebugScene.h"
 namespace gip{
 
     class Core{
         private:
             OpenGLWindow* _window;
+            DebugScene _testScene;
 
         public:
             void load();
