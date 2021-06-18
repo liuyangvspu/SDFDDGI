@@ -2,7 +2,7 @@
 
 int main(){
 
-    Core core{};
+    gip::Core core{};
     core.load();
     while(!core.shouldClose()){
         core.update();

@@ -1,18 +1,19 @@
 #include "Core.h"
 
+namespace gip{
+    void Core::load(){
+        _window = new OpenGLWindow();
+    }
 
-void Core::load(){
-    
-}
+    void Core::update(){
+        
+    }
 
-void Core::update(){
-    
-}
+    void Core::render(){
+        
+    }
 
-void Core::render(){
-    
-}
-
-void Core::unload(){
-    
+    void Core::unload(){
+        
+    }
 }
