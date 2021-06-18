@@ -29,7 +29,7 @@ namespace gip{
     }
     void OpenGLWindow::unload(){
         WARN("Destroying OpenGLWindow");
-        glfwTerminate();
+        glfwDestroyWindow(_window);
     }
 
 
