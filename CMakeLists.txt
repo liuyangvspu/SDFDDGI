@@ -18,6 +18,9 @@ add_subdirectory(dep/glad)
 add_subdirectory(dep/assimp)
 
 add_executable(SDFDDGI ${SRC_FILES})
+
+add_compile_definitions(RESOURCE_PATH="{CMAKE_SOURCE_DIR}/Engine/Resources")
+
 target_link_libraries(SDFDDGI PRIVATE ${OPENGL_gl_LIBRARY}) # Do we really need to load it? It seems that glad loads the library dynamically.
 target_link_libraries(SDFDDGI PRIVATE glfw)
 target_link_libraries(SDFDDGI PRIVATE fmt)
