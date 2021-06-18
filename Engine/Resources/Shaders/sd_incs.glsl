@@ -51,3 +51,5 @@ float sdTorus( vec3 p, vec3 pos, vec2 r ){
 	float x = length(p.xz) - r.x;
 	return length(vec2(x, p.y)) - r.y;
 }
+
+#include "march_dist.glsl"
