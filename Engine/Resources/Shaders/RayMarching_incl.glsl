@@ -171,10 +171,10 @@ vec3 phongIllumination(vec3 k_a, vec3 k_d, vec3 k_s, float alpha, vec3 p, vec3 e
 }
 
 
-vec2 iResolution = vec2(640, 480);
+vec2 iResolution = vec2(1920, 1080);
 void main(){
     vec2 uv = (gl_FragCoord.xy - 0.5 * iResolution.xy)/iResolution.y;
-    uv.y = -uv.y;
+    uv.y = uv.y;
 	vec3 resultingColor = vec3(0);
     
     Ray cameraRay;

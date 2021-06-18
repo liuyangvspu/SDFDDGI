@@ -5,7 +5,6 @@ namespace gip{
     void DebugScene::load(){
         //_shader.loadShader(GIP_INTERNAL_SHADER("passthrough.vert"), GIP_INTERNAL_SHADER("RayMarching_orig.glsl"));
         _shader.loadShader(GIP_INTERNAL_SHADER("passthrough.vert"), GIP_INTERNAL_SHADER("RayMarching_incl.glsl"));
-        exit(1);
         float ext = 0.95f;
         float vertices[] = {
             -ext, -ext, 1, 1.0f,    1.0f, 0.0f, 1.0f, 1.0f,    

@@ -18,11 +18,9 @@ namespace gip{
 		    FileLoaderFactory::loadTextFromFile(appendFileLocation.c_str(), appendedShaderSrc);
 
             shaderSrc = shaderSrc.substr(0, location) + appendedShaderSrc + shaderSrc.substr(end+1);
-            LOG("{}", shaderSrc);
 
 
             location = shaderSrc.find("#include");
-            LOG("Location = {}", location);
             
         }
         return shaderSrc.c_str();
