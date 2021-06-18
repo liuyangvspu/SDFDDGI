@@ -6,10 +6,7 @@ namespace gip{
 
     uint32_t ShaderProgram::_loadShader(const char* fileName, int type){
         uint32_t shaderID;
-		std::string shaderSrc;
-		FileLoaderFactory::loadTextFromFile(fileName, shaderSrc);
-
-		const char* shaderSrcChar = shaderSrc.c_str();
+		const char* shaderSrcChar = ShaderParser::getShaderSource(fileName);
         shaderID = glCreateShader(type);
 		glShaderSource(shaderID, 1, &shaderSrcChar, NULL);
 		glCompileShader(shaderID);

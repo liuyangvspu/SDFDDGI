@@ -3,7 +3,7 @@
 
 layout(location = 0) in vec4 o_color;
 layout(location = 0) out vec4 outColor;
-//uniform float u_time;
+uniform float u_time;
 
 struct Ray{
 	vec3 origin;
@@ -45,9 +45,9 @@ RayHit getMarchDistance(vec3 point){
     Sphere spheres[4];
     int i = 0;
     spheres[i].position = vec3(0., 3., 11.); spheres[i++].radius = 2.;
-    spheres[i].position = vec3(2. * cos(/*u_time*/1.0), 3., 11.); spheres[i++].radius = 1.;
-    spheres[i].position = vec3(2. * -cos(/*u_time*/1.0), 3., 11.); spheres[i++].radius = 1.;
-    spheres[i].position = vec3(7., 1.25 + 2.*(sin(/*u_time*/1.0*1.5f)), 10.); spheres[i++].radius = 1.;
+    spheres[i].position = vec3(2. * cos(u_time), 3., 11.); spheres[i++].radius = 1.;
+    spheres[i].position = vec3(2. * -cos(u_time), 3., 11.); spheres[i++].radius = 1.;
+    spheres[i].position = vec3(7., 1.25 + 2.*(sin(u_time*1.5f)), 10.); spheres[i++].radius = 1.;
     
     const int modelCount = 11;
     RayHit rayHits[modelCount];
@@ -56,12 +56,12 @@ RayHit getMarchDistance(vec3 point){
     rayHits[1].dist = sdSphere(point, spheres[1]);rayHits[1].color =  vec3(0., 0., 1.);
     rayHits[2].dist = sdSphere(point, spheres[2]);rayHits[2].color =  vec3(0., 0., 1.);
     rayHits[3].dist = sdSphere(point, spheres[3]);rayHits[3].color =  vec3(1., 0., 0.);
-    rayHits[4].dist = sdCapsule(point, vec3(-20., 5. * abs(sin(/*u_time*/1.0 * 3.)) + 1., 30.), vec3(-15., 5. * abs(cos(/*u_time*/1.0 * 3.)) + 1., 35.), 1.);
+    rayHits[4].dist = sdCapsule(point, vec3(-20., 5. * abs(sin(u_time * 3.)) + 1., 30.), vec3(-15., 5. * abs(cos(u_time * 3.)) + 1., 35.), 1.);
     rayHits[4].color =  vec3(1., 0., 1.);
     vec3 moving = vec3(0., 0.5, 3.);
     vec3 moving2 = vec3(0., 0.5, 3.);
-    moving.xz += vec2(sin(/*u_time*/1.0), cos(/*u_time*/1.0));
-    moving2.xz -= vec2(sin(/*u_time*/1.0), cos(/*u_time*/1.0));
+    moving.xz += vec2(sin(u_time), cos(u_time));
+    moving2.xz -= vec2(sin(u_time), cos(u_time));
     rayHits[5].dist = sdCapsule(point,vec3(0., 1.5, 3.),moving, .12);rayHits[5].color =  vec3(0., 1., 0.);
     rayHits[6].dist = sdCapsule(point,vec3(0., 1.5, 3.),moving2, .12);rayHits[6].color =  vec3(0., 1., 0.);
     rayHits[7].dist = sdTorus(point,  vec3(0., .5, 3.), vec2(1., .5));rayHits[7].color =  vec3(0., 1., 0.);
@@ -120,7 +120,7 @@ RayHit rayMarch(Ray ray){
 
 
 float getLight(vec3 point){
-    vec3 lightPosition = vec3(0, 4, -3);lightPosition.xz += vec2(sin(/*u_time*/1.0), cos(/*u_time*/1.0));
+    vec3 lightPosition = vec3(0, 4, -3);lightPosition.xz += vec2(sin(u_time), cos(u_time));
     vec3 lightVector = normalize(lightPosition - point);
     vec3 normal = getNormal(point);
     float dif = clamp(dot(normal, lightVector), 0., 1.);
@@ -150,17 +150,17 @@ vec3 phongIllumination(vec3 k_a, vec3 k_d, vec3 k_s, float alpha, vec3 p, vec3 e
     const vec3 ambientLight = 0.5 * vec3(1.0, 1.0, 1.0);
     vec3 color = ambientLight * k_a;
     
-    vec3 light1Pos = vec3(4.0 * sin(/*u_time*/1.0),
+    vec3 light1Pos = vec3(4.0 * sin(u_time),
                           2.0,
-                          4.0 * cos(/*u_time*/1.0));
+                          4.0 * cos(u_time));
     vec3 light1Intensity = vec3(0.4, 0.4, 0.4);
     
     color += phongContribForLight(k_d, k_s, alpha, p, eye,
                                   light1Pos,
                                   light1Intensity);
     
-    vec3 light2Pos = vec3(2.0 * sin(0.37 * /*u_time*/1.0),
-                          2.0 * cos(0.37 * /*u_time*/1.0),
+    vec3 light2Pos = vec3(2.0 * sin(0.37 * u_time),
+                          2.0 * cos(0.37 * u_time),
                           9.0);
     vec3 light2Intensity = vec3(0.4, 0.4, 0.4);
     

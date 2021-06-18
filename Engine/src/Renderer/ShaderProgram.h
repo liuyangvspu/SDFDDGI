@@ -4,6 +4,7 @@
 #include <cassert>
 #include <Engine/src/Utils/Logger.h>
 #include <Engine/src/Utils/Files/FileLoaderFactory.h>
+#include <Engine/src/Renderer/ShaderParser.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
