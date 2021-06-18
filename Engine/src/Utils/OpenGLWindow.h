@@ -13,7 +13,7 @@ namespace gip{
             OpenGLWindow(int width, int height, const char* windowName);
             void update();
             void render();
-            void destroy();
+            void unload();
             void setSize(int width, int height);
             void setPosition(int x, int y);
 

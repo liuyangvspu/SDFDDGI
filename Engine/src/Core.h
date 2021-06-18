@@ -1,8 +1,10 @@
 #pragma once
+#include <dep/glad/include/glad/glad.h>
 #include <Engine/src/Utils/Logger.h>
 #include <Engine/src/Utils/Input/InputManager.h>
 #include <Engine/src/Utils/OpenGLWindow.h>
 namespace gip{
+
     class Core{
         private:
             OpenGLWindow* _window;
@@ -12,10 +14,8 @@ namespace gip{
             void update();
             void render();
             void unload();
-
-
-
-            inline bool shouldClose(){return false;}
+            inline bool shouldClose(){return _window->shouldClose();}
 
     };
+
 }

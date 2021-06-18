@@ -27,7 +27,7 @@ namespace gip{
     void OpenGLWindow::render(){
         glfwSwapBuffers(_window);
     }
-    void OpenGLWindow::destroy(){
+    void OpenGLWindow::unload(){
         WARN("Destroying OpenGLWindow");
         glfwTerminate();
     }
