@@ -24,7 +24,7 @@ target_link_libraries(SDFDDGI PRIVATE fmt)
 target_link_libraries(SDFDDGI PRIVATE glm)
 target_link_libraries(SDFDDGI PRIVATE glad)
 target_link_libraries(SDFDDGI PRIVATE assimp)
-# target_compile_definitions(SDFDDGI PUBLIC _DEBUG_MODE_=1) This should be a command line argument
+target_compile_definitions(SDFDDGI PUBLIC _DEBUG_MODE_=1) #This should be a command line argument
 
 target_include_directories(SDFDDGI PRIVATE "dep/glfw/include")
 target_include_directories(SDFDDGI PRIVATE "dep/fmt/include")

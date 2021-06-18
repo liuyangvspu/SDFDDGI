@@ -85,4 +85,25 @@ inline void assert_log(bool exp, const char* file, int line, const S& format, Ar
 #define NA_WARNING_NNL(...) fmt::print(fmt::emphasis::bold | fg(fmt::color::yellow), "{}:" STR(__LINE__) " " __VA_ARGS__, __FILENAME__)
 #define NA_ERROR_NNL(...) fmt::print(fmt::emphasis::bold | fg(fmt::color::red), "{}:" STR(__LINE__) " " __VA_ARGS__, __FILENAME__)
 
+#else 
+
+
+//#define FULL_PATHS
+#define LOG(format, ...) 
+#define DEBUG(format, ...) 
+#define WARN(format, ...) 
+#define ERROR(format, ...) 
+#define FATAL(format, ...)
+#define ASSERT(exp) 
+
+
+#define NA_LOG(...) 
+#define NA_DEBUG(...)
+#define NA_WARNING(...) 
+#define NA_ERROR(...) 
+#define NA_DEBUG_NNL(...) 
+#define NA_LOG_NNL(...) 
+#define NA_WARNING_NNL(...)
+#define NA_ERROR_NNL(...)
+
 #endif

@@ -1,11 +1,13 @@
-#include <Engine/src/Utils/Logger.h>
+#include <Engine/src/Core.h>
 
 int main(){
 
-    LOG("LOG {} w/ {}.", "logger", 1234);
-    DEBUG("DEBUG {} w/ {}.", "logger", 1234);
-    WARN("WARN {} w/ {}.", "logger", 1234);
-    ERROR("ERROR {} w/ {}.", "logger", 1234);
-    FATAL("FATAL {} w/ {}.", "logger", 1234);
+    Core core{};
+    core.load();
+    while(!core.shouldClose()){
+        core.update();
+        core.render();
+    }
+    core.unload();
 
 }
