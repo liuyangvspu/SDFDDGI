@@ -1,6 +1,6 @@
 #pragma once
 #include <Engine/src/Utils/Logger.h>
-#include <Engine/src/Utils/OpenGLWindow.h>
+#include <Engine/src/Utils/Context/OpenGLWindow.h>
 #include <Engine/src/Utils/Input/GLFWInputKeyStore.h>
 #include <Engine/src/Utils/Input/InputManager.h>
 #include <GLFW/glfw3.h>

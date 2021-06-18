@@ -3,6 +3,9 @@
 namespace gip{
     void Core::load(){
         _window = new OpenGLWindow(1920, 1080, "SDFDDGI");
+        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
+           FATAL("Failed to initialize GLAD");
+        }    
     }
 
     void Core::update(){

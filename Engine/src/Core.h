@@ -2,7 +2,7 @@
 #include <dep/glad/include/glad/glad.h>
 #include <Engine/src/Utils/Logger.h>
 #include <Engine/src/Utils/Input/InputManager.h>
-#include <Engine/src/Utils/OpenGLWindow.h>
+#include <Engine/src/Utils/Context/OpenGLWindow.h>
 namespace gip{
 
     class Core{

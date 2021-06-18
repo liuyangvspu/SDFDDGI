@@ -1,7 +1,8 @@
 #pragma once
 #include <GLFW/glfw3.h>
 #include <Engine/src/Utils/Logger.h>
-#include <Engine/src/Utils/OpenGLCallbacks.h>
+#include <Engine/src/Utils/Context/OpenGLWindow.h>
+#include <Engine/src/Utils/Context/OpenGLCallbacks.h>
 namespace gip{
 
     class OpenGLWindow{
